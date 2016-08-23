@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!--连接位置-->
+    <classPathEntry
+            location="D:\myrepo\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" />
+    <context id="User" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.160.128:3306/?characterEncoding=UTF-8"
+                        userId="root" password="root" />
+        <javaModelGenerator targetPackage="org.yaoyao.entity"
+                            targetProject="D:/spring-mybatis/src/main/java" />
+        <sqlMapGenerator targetPackage="org.yaoyao.mapping"
+                         targetProject="D:/spring-mybatis/src/main/java" />
+        <javaClientGenerator targetPackage="org.yaoyao.dao"
+            targetProject="D:/spring-mybatis/src/main/java"  type="XMLMAPPER" />
+        <table schema="spring4_mybatis3" tableName="t_user" domainObjectName="User">
+            <columnOverride column="user_id" property="id" />
+            <columnOverride column="user_name" property="name" />
+        </table>
+    </context>
+</generatorConfiguration>
