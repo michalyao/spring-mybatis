@@ -15,7 +15,7 @@
                         userId="root" password="root" />
         <javaModelGenerator targetPackage="org.yaoyao.entity"
                             targetProject="D:/github/spring-mybatis/src/main/java" />
-        <sqlMapGenerator targetPackage="org.yaoyao.mapping"
+        <sqlMapGenerator targetPackage="mapping"
                          targetProject="D:/github/spring-mybatis/src/main/java" />
         <javaClientGenerator targetPackage="org.yaoyao.dao"
             targetProject="D:/github/spring-mybatis/src/main/java"  type="XMLMAPPER" />

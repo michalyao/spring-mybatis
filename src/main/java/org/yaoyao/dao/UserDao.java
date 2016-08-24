@@ -2,7 +2,7 @@ package org.yaoyao.dao;
 
 import org.yaoyao.entity.User;
 
-public interface UserMapper {
+public interface UserDao {
     int deleteByPrimaryKey(String userId);
 
     int insert(User record);
