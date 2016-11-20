@@ -11,7 +11,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userMapper;
 
     public boolean addUser(User user) {
-        return userMapper.insert(user) == 1 ? true : false;
+        return userMapper.insert(user) == 1;
     }
 
     public User getUserById(String id) {
