@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/jdbc
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <!--<bean id="simpleBean1" class="me.yoryor.spconfig.SimpleBean" init-method="init" destroy-method="mydestroy">-->
+        <!--<property name="name" value="Chris Schaefer"/>-->
+        <!--<property name="age" value="12"/>-->
+    <!--</bean>-->
+    <!--<bean id="simpleBean2" class="me.yoryor.spconfig.SimpleBean" init-method="init" destroy-method="mydestroy">-->
+        <!--<property name="age" value="12"/>-->
+    <!--</bean>-->
+    <!--<bean id="simpleBean3" class="me.yoryor.spconfig.SimpleBean" init-method="init">-->
+        <!--<property name="name" value="Chris Schaefer"/>-->
+    <!--</bean>-->
+    <!--<bean id="beanNamePrinter" name="namePrinter" class="me.yoryor.spaware.BeanNamePrinter" >-->
+    <!--</bean>-->
+
+    <!--<bean id="defaultDigest" class="me.yoryor.spfactory.MessageDigestFactoryBean"/>-->
+    <!--<bean id="shaDigest" factory-bean="shaDigestFactory" factory-method="newInstance"/>-->
+    <!--<bean id="md5Digest" class="me.yoryor.spfactory.MessageDigestFactoryBean" p:algorithmName="MD5" />-->
+
+    <!--<bean id="digester" class="me.yoryor.spfactory.MessageDigester" p:digest1-ref="shaDigest" p:digest2-ref="md5Digest" />-->
+    <!--<bean id="shaDigestFactory" class="me.yoryor.spfactory.MessageDigestFactory" p:algorithmName="SHA1"/>-->
+
+    <bean id="messageEventListener" class="me.yoryor.spevent.MessageEventListener" />
+    <bean id="publisher" class="me.yoryor.spevent.Publisher" />
+</beans>
