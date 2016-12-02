@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <tx:annotation-driven />
+
+    <context:component-scan base-package="me.yoryor.hibernate" />
+
+    <!--h2 embedded-->
+    <!--配置数据源-->
+    <jdbc:embedded-database id="dataSource" type="H2">
+        <jdbc:script location="classpath:META-INF/sqlh/schema.sql" />
+        <jdbc:script location="classpath:META-INF/sqlh/test-data.sql" />
+    </jdbc:embedded-database>
+
+    <!--配置声明式事务-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!--配置sessionFactory-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <!--dataSource-->
+        <property name="dataSource" ref="dataSource" />
+        <!--domain objects-->
+        <property name="packagesToScan" value="me.yoryor.hibernate" />
+        <!--hibernate configuration props-->
+        <property name="hibernateProperties" ref="hibernateProps" />
+    </bean>
+
+    <util:properties id="hibernateProps">
+        <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+        <prop key="hibernate.max_fetch_depth">3</prop>
+        <prop key="hibernate.jdbc.fetch_size">50</prop>
+        <prop key="hibernate.jdbc.batch_size">10</prop>
+        <prop key="hibernate.show_sql">true</prop>
+    </util:properties>
+</beans>
