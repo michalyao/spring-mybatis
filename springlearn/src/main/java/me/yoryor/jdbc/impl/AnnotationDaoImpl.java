@@ -5,8 +5,8 @@ import me.yoryor.jdbc.domain.Contact;
 import me.yoryor.jdbc.helper.SelectAllContacts;
 import me.yoryor.jdbc.helper.SelectContactByFirstName;
 import me.yoryor.jdbc.helper.UpdateContact;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -17,7 +17,7 @@ import java.util.Map;
 
 @Repository("contactDao")
 public class AnnotationDaoImpl implements ContactDao {
-    private static final Log LOG = LogFactory.getLog(AnnotationDaoImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AnnotationDaoImpl.class);
     private DataSource dataSource;
     private SelectContactByFirstName selectContactByFirstName;
     private UpdateContact updateContact;

@@ -8,7 +8,6 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.dao.DeadlockLoserDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.lang.UsesJava8;
 
 import javax.sql.DataSource;
 import java.util.ArrayList;
@@ -35,7 +34,6 @@ public class JdbcContactDao implements ContactDao, InitializingBean {
     }
 
     @Override
-    @UsesJava8
     public List<Contact> findAll() {
         String sql = "select id, first_name, last_name, birth_date from contact";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
